@@ -18,6 +18,8 @@ public class Alumno {
 
     private String password;
 
+    private RoleType role = RoleType.USER;
+
     @OneToMany(mappedBy = "alumno")
     private Set<CursoAlumno> cursoAlumnos = new HashSet<>();
 
@@ -55,5 +57,13 @@ public class Alumno {
 
     public void setCursoAlumnos(Set<CursoAlumno> cursoAlumnos) {
         this.cursoAlumnos = cursoAlumnos;
+    }
+
+    public RoleType getRole() {
+        return role;
+    }
+
+    public void setRole(RoleType role) {
+        this.role = role;
     }
 }

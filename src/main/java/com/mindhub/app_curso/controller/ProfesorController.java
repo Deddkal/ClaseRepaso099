@@ -6,9 +6,8 @@ import com.mindhub.app_curso.models.Curso;
 import com.mindhub.app_curso.repositories.CursoRepository;
 import com.mindhub.app_curso.repositories.ProfesorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/profe")
@@ -30,4 +29,8 @@ public class ProfesorController {
         return new CursoDTO(cursoRepository.findById(1L).orElse(null));
     }
 
+    @PostMapping
+    public ResponseEntity<String> post(@RequestBody CursoDTO cursoDTO){
+        return ResponseEntity.ok("hola");
+    }
 }
